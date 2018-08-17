@@ -1,8 +1,8 @@
 # Information:
 
-*Estrutura de yamls ingress-nginx from gcp;
-*Estrutura de yamls kubernetes;
-
+* [GCP] - Estrutura de yamls application node;
+* [GCP] - Estrutura de yamls ingress;
+ 
 # Usage:
 
 - Criar ingress nginx:
