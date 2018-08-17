@@ -1,7 +1,7 @@
 # Information:
 
-Estrutura de yamls ingress-nginx from gcp;
-Estrutura de yamls kubernetes;
+*Estrutura de yamls ingress-nginx from gcp;
+*Estrutura de yamls kubernetes;
 
 # Usage:
 
