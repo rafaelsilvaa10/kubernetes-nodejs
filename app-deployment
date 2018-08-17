@@ -1,0 +1,37 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: node-app-deployment
+  namespace: node-app-namespace
+spec:
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: node-app
+    spec:
+      containers:
+      - image: SEUREPOSITORIO/node-app:latest 
+        name: node-app
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: "0.4"
+            memory: "512Mi"
+          requests:
+            cpu: "0.1"
+            memory: "64Mi"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          periodSeconds: 10
+          timeoutSeconds: 20
+          successThreshold: 1
+          failureThreshold: 10
+        env:
+        - name: TZ
+          value: "America/Sao_Paulo"
+        ports:
+        - containerPort: 3000
+          name: http

@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: node-app
+  namespace: node-app
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  tls:
+  - hosts:
+    - nodeapp.rafael.teste
+    secretName: tls-rafael-teste
+  rules:
+  - host: nodeapp.rafael.teste
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: node-app-svc
+          servicePort: 3000
+      - path: /*
+        backend:
+          serviceName: node-app-svc
+          servicePort: 3000
